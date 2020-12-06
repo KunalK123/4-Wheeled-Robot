@@ -19,7 +19,8 @@ pub_feedback = rospy.ServiceProxy(msg_topic_feedback, GetJointProperties)
 rospy.init_node('dd_ctrl')
 pub = rospy.ServiceProxy(msg_topic,ApplyJointEffort)
 
-effort = 0.5
+effort_right = 0.5
+effort_left = 0.5
 start_time = rospy.Time(0,0)
 
 f = 0.25
@@ -42,36 +43,46 @@ while True:
       y = s.pose.position.y
       
       if(z == 'w'):
-        effort = effort
-        pub(joint_left_front, effort, start_time, end_time)
-        pub(joint_right_front, effort, start_time, end_time)
-        pub(joint_left_back, effort, start_time, end_time)
-        pub(joint_right_back, effort, start_time, end_time)
-        #val = pub_feedback(joint_left)
-        #val2 = pub_feedback(joint_right)
-        #print("Left Wheel:", val.rate)
-        #print("Right Wheel:", val2.rate)
+        effort_left = effort_left
+        effort_right = effort_right
+        pub(joint_left_front, effort_left, start_time, end_time)
+        pub(joint_right_front, effort_right, start_time, end_time)
+        pub(joint_left_back, effort_left, start_time, end_time)
+        pub(joint_right_back, effort_right, start_time, end_time)
         print(s)
 
       if(z == 's'):
-        effort = -effort
-        pub(joint_left_front, effort, start_time, end_time)
-        pub(joint_right_front, effort, start_time, end_time)
-        pub(joint_left_back, effort, start_time, end_time)
-        pub(joint_right_back, effort, start_time, end_time)
-        #val = pub_feedback(joint_left)
-        #val2 = pub_feedback(joint_right)
-        #print("Left Wheel:", val.rate)
-        #print("Right Wheel:", val2.rate)
+        effort_left = -effort_left
+        effort_right = -effort_right
+        pub(joint_left_front, effort_left, start_time, end_time)
+        pub(joint_right_front, effort_right, start_time, end_time)
+        pub(joint_left_back, effort_left, start_time, end_time)
+        pub(joint_right_back, effort_right, start_time, end_time)
         print(s)
             
       if(z == 'a'):
-        effort = effort
-        pub(joint_left_front, effort, start_time, end_time)
+        effort_left = 2.5
+        effort_right = -1
+        pub(joint_left_front, 0, start_time, end_time)
+        pub(joint_right_front, effort_right, start_time, end_time)
+        pub(joint_left_back, effort_left, start_time, end_time)
+        pub(joint_right_back, 0, start_time, end_time)
         print(s)
       
       if(z == 'd'):
-        effort = effort
-        pub(joint_right_front, effort, start_time, end_time)
+        effort_left = -1
+        effort_right = 2.5
+        pub(joint_left_front, effort_left, start_time, end_time)
+        pub(joint_right_front, 0, start_time, end_time)
+        pub(joint_left_back, 0, start_time, end_time)
+        pub(joint_right_back, effort_right, start_time, end_time)
         print(s)
 
+      if(z == 'r'):
+        effort_left = 0
+        effort_right = 0
+        pub(joint_left_front, effort_left, start_time, end_time)
+        pub(joint_right_front, 0, start_time, end_time)
+        pub(joint_left_back, 0, start_time, end_time)
+        pub(joint_right_back, effort_right, start_time, end_time)
+        print(s)
