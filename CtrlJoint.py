@@ -60,17 +60,17 @@ while True:
         pub(joint_right_back, effort_right, start_time, end_time)
         print(s)
             
-      if(z == 'a'):
+      if(z == 'd'):
         effort_left = 2.5
-        effort_right = -1
+        effort_right = -1.5
         pub(joint_left_front, 0, start_time, end_time)
         pub(joint_right_front, effort_right, start_time, end_time)
         pub(joint_left_back, effort_left, start_time, end_time)
         pub(joint_right_back, 0, start_time, end_time)
         print(s)
       
-      if(z == 'd'):
-        effort_left = -1
+      if(z == 'a'):
+        effort_left = -1.5
         effort_right = 2.5
         pub(joint_left_front, effort_left, start_time, end_time)
         pub(joint_right_front, 0, start_time, end_time)
@@ -79,10 +79,10 @@ while True:
         print(s)
 
       if(z == 'r'):
-        effort_left = 0
-        effort_right = 0
+        effort_left = 2
+        effort_right = -1.8
         pub(joint_left_front, effort_left, start_time, end_time)
-        pub(joint_right_front, 0, start_time, end_time)
-        pub(joint_left_back, 0, start_time, end_time)
+        pub(joint_right_front, effort_right, start_time, end_time)
+        pub(joint_left_back, effort_left, start_time, end_time)
         pub(joint_right_back, effort_right, start_time, end_time)
         print(s)
