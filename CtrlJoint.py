@@ -6,6 +6,9 @@ from gazebo_msgs.srv import GetModelState, GetModelStateRequest
 import os
 import time as t
 
+b0 = "./boxdrop.sh"
+os.system(b0)
+
 msg_topic = '/gazebo/apply_joint_effort'
 joint_left_front = 'left_wheel_hinge_front'
 joint_right_front = 'right_wheel_hinge_front'
@@ -19,11 +22,11 @@ pub_feedback = rospy.ServiceProxy(msg_topic_feedback, GetJointProperties)
 rospy.init_node('dd_ctrl')
 pub = rospy.ServiceProxy(msg_topic,ApplyJointEffort)
 
-effort_right = 0.5
-effort_left = 0.5
+effort_right = 1
+effort_left = 1
 start_time = rospy.Time(0,0)
 
-f = 0.25
+f = 0.05
 T = 1/f
 end_time = rospy.Time(T,0)
 rate = rospy.Rate(f)
@@ -61,8 +64,8 @@ while True:
         print(s)
             
       if(z == 'd'):
-        effort_left = 2.5
-        effort_right = -1.5
+        effort_left = effort_left
+        effort_right = -effort_right
         pub(joint_left_front, 0, start_time, end_time)
         pub(joint_right_front, effort_right, start_time, end_time)
         pub(joint_left_back, effort_left, start_time, end_time)
@@ -70,8 +73,8 @@ while True:
         print(s)
       
       if(z == 'a'):
-        effort_left = -1.5
-        effort_right = 2.5
+        effort_left = -effort_left
+        effort_right = effort_right
         pub(joint_left_front, effort_left, start_time, end_time)
         pub(joint_right_front, 0, start_time, end_time)
         pub(joint_left_back, 0, start_time, end_time)
