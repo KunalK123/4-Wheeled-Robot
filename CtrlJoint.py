@@ -80,12 +80,3 @@ while True:
         pub(joint_left_back, 0, start_time, end_time)
         pub(joint_right_back, effort_right, start_time, end_time)
         print(s)
-
-      if(z == 'r'):
-        effort_left = 2
-        effort_right = -1.8
-        pub(joint_left_front, effort_left, start_time, end_time)
-        pub(joint_right_front, effort_right, start_time, end_time)
-        pub(joint_left_back, effort_left, start_time, end_time)
-        pub(joint_right_back, effort_right, start_time, end_time)
-        print(s)
