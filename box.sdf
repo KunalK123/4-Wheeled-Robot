@@ -48,11 +48,11 @@
         </link>
 
       <link name="front_left_wheel">
-        <pose>0.2 0.2 0.1 0 1.5707 1.5707</pose>
+        <pose>0.3 0.2 0.1 0 1.5707 1.5707</pose>
         <collision name="collision">
           <geometry>
             <cylinder>
-              <radius>.15</radius>
+              <radius>.22</radius>
               <length>.1</length>
             </cylinder>
           </geometry>
@@ -60,7 +60,7 @@
         <visual name="visual">
           <geometry>
             <cylinder>
-              <radius>.15</radius>
+              <radius>.22</radius>
               <length>.1</length>
             </cylinder>
           </geometry>
@@ -68,11 +68,11 @@
       </link>
 
       <link name="back_left_wheel">
-        <pose>-0.2 0.2 0.1 0 1.5707 1.5707</pose>
+        <pose>-0.3 0.2 0.1 0 1.5707 1.5707</pose>
         <collision name="collision">
           <geometry>
             <cylinder>
-              <radius>.15</radius>
+              <radius>.22</radius>
               <length>.1</length>
             </cylinder>
           </geometry>
@@ -80,7 +80,7 @@
         <visual name="visual">
           <geometry>
             <cylinder>
-              <radius>.15</radius>
+              <radius>.22</radius>
               <length>.1</length>
             </cylinder>
           </geometry>
@@ -88,11 +88,11 @@
       </link>
 
       <link name="front_right_wheel">
-        <pose>0.2 -0.2 0.1 0 1.5707 1.5707</pose>
+        <pose>0.3 -0.2 0.1 0 1.5707 1.5707</pose>
         <collision name="collision">
           <geometry>
             <cylinder>
-              <radius>.15</radius>
+              <radius>.22</radius>
               <length>.1</length>
             </cylinder>
           </geometry>
@@ -100,7 +100,7 @@
         <visual name="visual">
           <geometry>
             <cylinder>
-              <radius>.15</radius>
+              <radius>.22</radius>
               <length>.1</length>
             </cylinder>
           </geometry>
@@ -108,11 +108,11 @@
       </link>
 
       <link name="back_right_wheel">
-        <pose>-0.2 -0.2 0.1 0 1.5707 1.5707</pose>
+        <pose>-0.3 -0.2 0.1 0 1.5707 1.5707</pose>
         <collision name="collision">
           <geometry>
             <cylinder>
-              <radius>.15</radius>
+              <radius>.22</radius>
               <length>.1</length>
             </cylinder>
           </geometry>
@@ -120,7 +120,7 @@
         <visual name="visual">
           <geometry>
             <cylinder>
-              <radius>.15</radius>
+              <radius>.22</radius>
               <length>.1</length>
             </cylinder>
           </geometry>
