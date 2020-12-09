@@ -22,11 +22,11 @@ pub_feedback = rospy.ServiceProxy(msg_topic_feedback, GetJointProperties)
 rospy.init_node('dd_ctrl')
 pub = rospy.ServiceProxy(msg_topic,ApplyJointEffort)
 
-effort_right = 1
-effort_left = 1
+effort_right = 1.5
+effort_left = 1.5
 start_time = rospy.Time(0,0)
 
-f = 0.05
+f = 0.0005
 T = 1/f
 end_time = rospy.Time(T,0)
 rate = rospy.Rate(f)
