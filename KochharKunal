@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+INSTALL_DIR=/home/user/etc
+PROJECT_NAME=KochharKunal
+INSTALL_BIN=/home/user/bin
+BIN_NAME=KochharKunal
+export PATH="$PATH:$INSTALL_BIN"
+
+Install()
+{
+    #make folder for Install
+    mkdir -p $INSTALL_DIR/$PROJECT_NAME
+    mkdir -p $INSTALL_BIN
+
+    #put out bin into bin
+    cp $BIN_NAME $INSTALL_BIN/
+
+    #put all install files in etc
+    cp -r * $INSTALL_DIR/$PROJECT_NAME/
+
+    export PATH="$PATH:$INSTALL_BIN"
+}
+
+Start()
+{
+    cd $INSTALL_DIR/$PROJECT_NAME
+    python CtrlJoint.py
+    echo '==== Final Loaded ===='
+}
+
+
+Help()
+{
+    echo ''
+    echo ''
+    echo '-----------------------------------'
+    echo '-----------KochharKunal------------'
+    echo '-----------------------------------'
+    echo 'install       : Install the program'
+    echo 'start          : Starts the program'
+    echo 'help            : Shows this Dialog'
+}
+
+
+case $1 in
+'install')
+    Install
+    ;;
+'start')
+    Start
+    ;;
+'help')
+    Help
+    ;;
+*)
+    Help
+    ;;
+    esac
+exit 0
